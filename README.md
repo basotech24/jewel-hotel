@@ -1,27 +1,22 @@
-BASOTECH ICT Project
+Jewel Hotel Website Project
 
-This repository contains practical ICT and web technology projects developed by Abdullahi Musa Baso.
+This project is a luxury hotel website design for Jewel Hotel Kaduna.  
+It demonstrates a modern responsive layout using HTML, CSS, and JavaScript.
 
-Project Purpose
-To build practical, secure, and useful technology solutions for students, businesses, and institutions.
+Features
+- Modern hotel landing page
+- Responsive layout
+- Clean visual design
+- Structured navigation
 
-Technologies Used
+Technologies
 - HTML
 - CSS
 - JavaScript
-- Linux Tools
-- Networking Basics
 
-Features
-- Clean structure
-- Practical implementation
-- Easy to understand
-- Upgrade-ready
-
-Author
+Developer
 Abdullahi Musa Baso  
-Founder — BASOTECH ICT SOLUTIONS
+BASOTECH ICT SOLUTIONS
 
-Contact
-basotechictsolutions@gmail.com
-07088914893
+Purpose
+Practice and demonstration of professional web design structure.
