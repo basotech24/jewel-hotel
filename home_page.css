@@ -97,11 +97,11 @@ animation:center-bg ease 30s infinite 0s;
 }
 /* Restored original image paths for the background animation */
 @keyframes center-bg{
-0%{background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url('image/falow.jpg') center/cover no-repeat fixed;}
-25%{background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url('image/event-halls.jpg') center/cover no-repeat fixed;}
-50%{background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url('image/restorant.jpg') center/cover no-repeat fixed;}
-75%{background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url('image/meeting.jpg') center/cover no-repeat fixed;}
-100%{background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url('image/swimming.jpg') center/cover no-repeat fixed;}
+0%{background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url('falow.jpeg') center/cover no-repeat fixed;}
+25%{background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url('event-halls.jpeg') center/cover no-repeat fixed;}
+50%{background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url('restorant.jpeg') center/cover no-repeat fixed;}
+75%{background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url('meeting.jpeg') center/cover no-repeat fixed;}
+100%{background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url('swimming.jpeg') center/cover no-repeat fixed;}
 }
 .center-content{
     max-width:900px;
@@ -453,4 +453,5 @@ padding: 2rem 1.5rem;
     left: 50%; 
     transform: translateX(-50%); 
 }
+
 }
