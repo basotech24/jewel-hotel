@@ -294,6 +294,32 @@ color: #000;
     background: #081126;
     color: #eaf7ff
 }
+.wa-btn{
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: .85rem 1.2rem;
+  border-radius: 40px;
+  background: #25D366;
+  color: #061a0f;
+  font-weight: 800;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, .18);
+}
+
+.wa-btn i{ font-size: 1.1rem; }
+
+.form-status{
+  margin-top: 10px;
+  font-size: .95rem;
+  color: rgba(234,247,255,.85);
+}
+
+.form-status.error{
+  color: #ffb3b3;
+}
+
 
 .contact-info{
     background: #071025;
@@ -455,3 +481,4 @@ padding: 2rem 1.5rem;
 }
 
 }
+
