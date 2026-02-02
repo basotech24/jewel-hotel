@@ -42,15 +42,75 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Booking form (demo)
-    if (bookingForm) {
-        bookingForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const nm = bookingForm.name.value.trim() || 'Guest';
-            const ph = bookingForm.phone.value.trim() || 'N/A';
-            // In a real application, you would not use alert.
-            // This is kept from the original for demonstration.
-            alert(`Thanks ${nm}! Your booking request has been received. We will contact you shortly on ${ph}.`);
-            bookingForm.reset();
-        });
+    // Booking form -> WhatsApp
+if (bookingForm) {
+    const waLink = document.getElementById('wa-link');
+    const statusEl = document.getElementById('form-status');
+
+    const HOTEL_WA = "2347088914893"; // your WhatsApp number (no +)
+
+    function setStatus(msg, ok = true) {
+        if (!statusEl) return;
+        statusEl.textContent = msg;
+        statusEl.classList.toggle("error", !ok);
     }
-});
+
+    function normalizePhone(p) {
+        // keep + and digits only
+        return (p || "").replace(/[^\d+]/g, "");
+    }
+
+    function isValidDateRange(checkin, checkout) {
+        if (!checkin || !checkout) return false;
+        const inD = new Date(checkin);
+        const outD = new Date(checkout);
+        // checkout must be after checkin
+        return outD > inD;
+    }
+
+    bookingForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const name = bookingForm.name.value.trim();
+        const phone = normalizePhone(bookingForm.phone.value.trim());
+        const checkin = bookingForm.checkin.value;
+        const checkout = bookingForm.checkout.value;
+        const message = bookingForm.message.value.trim();
+
+        if (!name) return setStatus("Please enter your full name.", false);
+        if (!phone) return setStatus("Please enter your phone number.", false);
+        if (!checkin) return setStatus("Please select your check-in date.", false);
+        if (!checkout) return setStatus("Please select your check-out date.", false);
+        if (!isValidDateRange(checkin, checkout)) {
+            return setStatus("Check-out date must be after check-in date.", false);
+        }
+
+        // simple booking reference
+        const bookingId = "GJH-" + Date.now().toString().slice(-6);
+
+        const text =
+`Hello Gombe Jewel Hotel Kaduna,
+I want to book a room.
+
+Name: ${name}
+Phone: ${phone}
+Check-in: ${checkin}
+Check-out: ${checkout}
+Booking ID: ${bookingId}
+Request: ${message || "None"}
+
+Please confirm availability and price.`;
+
+        const url = `https://wa.me/${HOTEL_WA}?text=${encodeURIComponent(text)}`;
+
+        // Show WhatsApp button + auto-open WhatsApp
+        if (waLink) {
+            waLink.href = url;
+            waLink.style.display = "inline-flex";
+        }
+        setStatus("Booking details prepared. Click “Continue on WhatsApp” to complete.", true);
+
+        // optional: auto-open WhatsApp
+        window.open(url, "_blank", "noopener");
+    });
+}
