@@ -112,7 +112,8 @@ Request: ${message || "None"}
 
 Please confirm availability and price.`;
 
-      const url = `https://wa.me/${HOTEL_WA}?text=${encodeURIComponent(text)}`;
+      const url = `https://api.whatsapp.com/send?phone=${HOTEL_WA}&text=${encodeURIComponent(text)}`;
+
 
       // show button for browsers that block popups
       if (waLink) {
@@ -120,7 +121,7 @@ Please confirm availability and price.`;
         waLink.style.display = "inline-flex";
       }
 
-      setStatus("Booking details prepared. Click “Continue on WhatsApp” to complete.", true);
+      setStatus("WhatsApp opened. Please tap SEND to complete your booking.", true);
 
       // Try auto-open WhatsApp
       const win = window.open(url, "_blank", "noopener");
@@ -131,3 +132,4 @@ Please confirm availability and price.`;
     });
   }
 });
+
